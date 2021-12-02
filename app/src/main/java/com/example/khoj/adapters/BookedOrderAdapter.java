@@ -60,8 +60,8 @@ public class BookedOrderAdapter extends RecyclerView.Adapter<BookedOrderAdapter.
 		bindingX.orderHotelCheckOut.setText("Check-out : " + calendar.get(Calendar.DAY_OF_MONTH) + "th " + monthName(calendar.get(Calendar.MONTH))
 				+ " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
 
-		bindingX.orderHotelRoomAdult.setText(order.getAdult_bed() + " Adult Beds");
-		bindingX.orderHotelRoomChild.setText(order.getChild_bed() + " Child Beds");
+		bindingX.orderHotelRoomAdult.setText(order.getBeds_available() + " Beds");
+
 
 		bindingX.orderHotelRoomPrice.setText("INR " + order.getPrice_total() + " in total");
 		bindingX.orderHotelRoomStatus.setText(FDB.status(order.getStatus()));

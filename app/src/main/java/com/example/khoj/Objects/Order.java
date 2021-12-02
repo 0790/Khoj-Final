@@ -1,8 +1,7 @@
 package com.example.khoj.Objects;
 
 public class Order {
-	long adult_bed;
-	long child_bed;
+	long beds_available;
 	int status;
 	long check_in, check_out, order_id, price_total;
 	String hotel_name;
@@ -28,23 +27,15 @@ public class Order {
 	}
 
 
-	public long getAdult_bed() {
-		return adult_bed;
+	public long getBeds_available() {
+		return beds_available;
 	}
 
-	public Order setAdult_bed(Long adult_bed) {
-		this.adult_bed = adult_bed;
+	public Order setBeds_available(Long beds_available) {
+		this.beds_available = beds_available;
 		return this;
 	}
 
-	public long getChild_bed() {
-		return child_bed;
-	}
-
-	public Order setChild_bed(Long child_bed) {
-		this.child_bed = child_bed;
-		return this;
-	}
 
 	public int getStatus() {
 		return status;

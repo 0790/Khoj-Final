@@ -69,8 +69,7 @@ public class HostelListAdapter extends RecyclerView.Adapter<HostelListAdapter.Vi
 		bindingX.hotelDiningFacilities.setText(hostel.getD_facilities());
 		bindingX.hotelHotelFacilities.setText(hostel.getH_facilities());
 		bindingX.hotelRoomFacilities.setText(hostel.getR_facilities());
-		bindingX.hotelRoomAdult.setText((int) hostel.getPeople_adult() + " Adult Beds");
-		bindingX.hotelRoomChild.setText((int) hostel.getPeople_child() + " Child Beds");
+		bindingX.hotelBedsAvailable.setText((int) hostel.getBeds_available() + " Beds");
 		bindingX.hotelPhone.setText(hostel.getPhone());
 		bindingX.hotelRoomPrice.setText("INR " + hostel.getPrice());
 		bindingX.hotelRoomRating.setText(String.valueOf(hostel.getRating()));
@@ -186,11 +185,7 @@ public class HostelListAdapter extends RecyclerView.Adapter<HostelListAdapter.Vi
 		bookHotelBinding.checkInDate.setText(old_day + " " + monthName(old_month) + "\n" + old_hour + ":" + old_minute);
 		bookHotelBinding.checkOutDate.setText(dayOfMonth + " " + monthName(monthOfYear) + "\n" + hourOfDay + ":" + minute);
 
-		bookHotelBinding.adultBedsNeed.setRange(1, (int) hostel.getPeople_adult());
-		bookHotelBinding.childBedsNeed.setRange(0, (int) hostel.getPeople_child());
-		bookHotelBinding.adultBedsNeed.setNumber(String.valueOf((int) hostel.getPeople_adult()));
-		bookHotelBinding.childBedsNeed.setNumber(String.valueOf((int) hostel.getPeople_child()));
-
+		bookHotelBinding.bedsNeed.setRange(1, (int) hostel.getBeds_available());
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss", Locale.ENGLISH);
 		Date firstDate = sdf.parse(old_month + "/" + old_day + "/" + year + " " + old_hour + ":" + old_minute + ":00");
 		Date secondDate = sdf.parse(monthOfYear + "/" + dayOfMonth + "/" + year + " " + hourOfDay + ":" + minute + ":00");
@@ -210,8 +205,7 @@ public class HostelListAdapter extends RecyclerView.Adapter<HostelListAdapter.Vi
 			all.put("HOTEL_NAME", hostel.getName());
 			all.put("CHECK_IN", firstDate.getTime());
 			all.put("CHECK_OUT", secondDate.getTime());
-			all.put("ADULT_BED", Integer.parseInt(bookHotelBinding.adultBedsNeed.getNumber()));
-			all.put("CHILD_BED", Integer.parseInt(bookHotelBinding.childBedsNeed.getNumber()));
+			all.put("BED_NEEDED", Integer.parseInt(bookHotelBinding.bedsNeed.getNumber()));
 			all.put("PRICE_TOTAL", diff * hostel.getPrice());
 			all.put("ORDER_ID", order_id);
 			all.put("IMAGES_ID", hostel.getImages_id());

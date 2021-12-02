@@ -43,17 +43,7 @@
             android:textStyle="bold"
             app:drawableStartCompat="@drawable/ic_room_adult" />
 
-        <TextView
-            android:id="@+id/order_hotel_room_child"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="4dp"
-            android:fontFamily="@font/proxima_asi_light"
-            android:gravity="center_vertical"
-            android:padding="6dp"
-            android:text="@string/_2_child_beds"
-            android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_room_child" />
+
 
         <TextView
             android:id="@+id/order_hotel_check_in"
