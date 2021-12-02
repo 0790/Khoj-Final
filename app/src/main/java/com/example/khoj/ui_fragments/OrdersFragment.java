@@ -47,7 +47,7 @@ public class OrdersFragment extends Fragment {
 						order.setHotel_name(snapshot.getString("HOTEL_NAME"))
 								.setCheck_in(snapshot.getLong("CHECK_IN"))
 								.setCheck_out(snapshot.getLong("CHECK_OUT"))
-								.setBeds_available(snapshot.getLong("BEDS_NEEDED"))
+								.setBeds_available(snapshot.getLong("BED_NEEDED"))
 								.setPrice_total(snapshot.getLong("PRICE_TOTAL"))
 								.setOrder_id(snapshot.getLong("ORDER_ID"))
 								.setImages_id(snapshot.getString("IMAGES_ID"))
