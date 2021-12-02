@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/check_in_date">
 
         <TextView
-            android:id="@+id/hotel_room_adult"
+            android:id="@+id/beds_needed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -98,7 +98,7 @@
             app:drawableStartCompat="@drawable/ic_room_adult" />
 
         <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-            android:id="@+id/adult_beds_need"
+            android:id="@+id/beds_need"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -109,41 +109,6 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/abc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat3">
-
-        <TextView
-            android:id="@+id/hotel_room_child"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawablePadding="4dp"
-            android:fontFamily="@font/proxima_asi_light"
-            android:gravity="center_vertical"
-            android:padding="6dp"
-            android:text="@string/child_bed_needed"
-            android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_room_child" />
-
-        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-            android:id="@+id/child_beds_need"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            app:backGroundColor="?colorPrimary"
-            app:finalNumber="2"
-            app:initialNumber="1" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <TextView
         android:id="@+id/hotel_room_price_total"
@@ -159,7 +124,7 @@
         android:text="@string/inr_xxxx_in_total_for_xxx_days"
         android:textStyle="bold"
         app:drawableStartCompat="@drawable/ic_price"
-        app:layout_constraintTop_toBottomOf="@+id/abc" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat3" />
 
     <TextView
         android:id="@+id/pay_text"

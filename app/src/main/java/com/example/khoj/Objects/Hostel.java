@@ -10,8 +10,7 @@ public class Hostel {
 	String phone;
 	String parent_location;
 
-	double people_adult;
-	double people_child;
+	double beds_available;
 	double total_available;
 	double total_room;
 	double price;
@@ -92,23 +91,16 @@ public class Hostel {
 		return this;
 	}
 
-	public double getPeople_adult() {
-		return people_adult;
+	public double getBeds_available() {
+		return beds_available;
 	}
 
-	public Hostel setPeople_adult(double people_adult) {
-		this.people_adult = people_adult;
+	public Hostel setBeds_available(double beds_available) {
+		this.beds_available = beds_available;
 		return this;
 	}
 
-	public double getPeople_child() {
-		return people_child;
-	}
 
-	public Hostel setPeople_child(double people_child) {
-		this.people_child = people_child;
-		return this;
-	}
 
 	public double getTotal_available() {
 		return total_available;

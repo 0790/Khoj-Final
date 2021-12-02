@@ -2,6 +2,8 @@
     <string name="app_name">Khoj</string>
     <string name="title_home">Home</string>
     <string name="title_profile">Profile</string>
+    <string name="_2_adult_beds">2 Beds Available</string>
+    <string name="adult_beds_needed">Beds Needed</string>
     <string name="title_orders">Orders</string>
     <string name="login">Login</string>
     <string name="phone_number">Phone Number</string>
@@ -32,7 +34,7 @@
     <string name="_6_out_of_24_rooms_available">6 out of 24 rooms available</string>
     <string name="long_text">long text....</string>
     <string name="parking_available_24x7">Parking Available 24X7</string>
-    <string name="_2_adult_beds">2 Adult Beds</string>
+
     <string name="_2_child_beds">2 Child Beds</string>
     <string name="inr_2205">INR 2205</string>
     <string name="free_wifi_available_24x7">Free WiFi Available 24X7</string>
@@ -42,7 +44,7 @@
     <string name="check_in">Check-In</string>
     <string name="check_out">Check-Out</string>
     <string name="_9th_july">9th July</string>
-    <string name="adult_beds_needed">Adult Beds Needed</string>
+
     <string name="child_bed_needed">Child Bed Needed</string>
     <string name="payment_is_done_at_reception">Payment &amp; bed credits done at reception^</string>
     <string name="inr_xxxx_in_total_for_xxx_days">INR XXXX in total for XXX days.</string>
