@@ -2,6 +2,7 @@ package com.example.khoj.ui_fragments;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,8 +26,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
+import com.example.khoj.R;
+import com.example.khoj.databinding.FragmentProfileBinding;
+import com.example.khoj.functions.FDB;
+import com.example.khoj.functions.LocalDatabase;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -44,20 +50,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import com.example.khoj.R;
-import com.example.khoj.databinding.FragmentProfileBinding;
-import com.example.khoj.functions.FDB;
-import com.example.khoj.functions.LocalDatabase;
-
 public class ProfileFragment extends Fragment {
 	private Button btnToggleDark;
 	private FragmentProfileBinding binding;
 	BottomSheetDialog modal;
 	int i = 10;
+	private UiModeManager uiModeManager ;
 
 	private Local_Caller caller;
 	AlertDialog alertDialog, alertDialog_later;
 	private String new_num;
+	private Context mContext;
 
 	@SuppressLint("SetTextI18n")
 	public View onCreateView(@NonNull LayoutInflater inflater,
@@ -66,35 +69,31 @@ public class ProfileFragment extends Fragment {
 
 		binding.profileImg.setOnClickListener(v -> updateProfile());
 		loadImg();
-		SharedPreferences sharedPreferences
-				=  this.requireActivity().getSharedPreferences(
-				"sharedPrefs", Context.MODE_PRIVATE);
-		final SharedPreferences.Editor editor = sharedPreferences.edit();
-		final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
-
-		/*@SuppressLint("InflateParams") ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_profile, null);
-		btnToggleDark= root.findViewById(R.id.btnToggleDark);
-		if (isDarkModeOn) {
-			AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+		mContext = container.getContext();
+		/*uiModeManager = (UiModeManager) mContext.getSystemService(Context.UI_MODE_SERVICE);
+		//final boolean isDarkModeOn =LocalDatabase.getInstance(getContext()).getDarkTheme();
+		btnToggleDark= binding.btnToggleDark;
+		if (LocalDatabase.getInstance(getContext()).getDarkTheme()) {
+			uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
 			btnToggleDark.setText("Disable Dark Mode");
 		}
 		else {
-			AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+			uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
 			btnToggleDark.setText("Enable Dark Mode");
 		}
 		btnToggleDark.setOnClickListener(
 				(View view) -> {
 					// When user taps the enable/disable
 					// dark mode button
-					if (isDarkModeOn) {
+
+					if (LocalDatabase.getInstance(getContext()).getDarkTheme()) {
 						// if dark mode is on it
 						// will turn it off
-						AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 						// it will set isDarkModeOn
 						// boolean to false
-						editor.putBoolean("isDarkModeOn", false);
-						editor.apply();
 
+						LocalDatabase.getInstance(getContext()).setDarkTheme(false);
+						uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
 						// change text of Button
 						btnToggleDark.setText("Enable Dark Mode");
 					}
@@ -102,19 +101,20 @@ public class ProfileFragment extends Fragment {
 
 						// if dark mode is off
 						// it will turn it on
-						AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+						uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
 
 						// it will set isDarkModeOn
 						// boolean to true
-						editor.putBoolean("isDarkModeOn", true);
-						editor.apply();
+						LocalDatabase.getInstance(getContext()).setDarkTheme(true);
 
 						// change text of Button
 						btnToggleDark.setText(
 								"Disable Dark Mode");
 					}
 				});
-		*/
+
+
+	*/
 
 		binding.profileName.setText(LocalDatabase.getInstance(getContext()).getUsername());
 		binding.phoneDisplay.setText("Phone : +91" + LocalDatabase.getInstance(getContext()).getPhoneNumber());

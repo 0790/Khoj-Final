@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import androidx.annotation.Nullable;
 
 public class LocalDatabase {
+	private static final String THEME = "theme";
 	private final SharedPreferences preferences;
 	private static LocalDatabase instance;
 
@@ -23,7 +24,14 @@ public class LocalDatabase {
 	public static LocalDatabase getInstance(Context mContext) {
 		return instance != null && instance.preferences != null ? instance : (instance = new LocalDatabase(mContext));
 	}
-
+	@Nullable
+	public boolean getDarkTheme(){
+		return preferences.getBoolean(THEME , false) ;
+	}
+	public LocalDatabase setDarkTheme(boolean theme) {
+		preferences.edit().putBoolean(THEME, theme).apply();
+		return this;
+	}
 	@Nullable
 	public String getUsername() {
 		return preferences.getString(USER_NAME, null);

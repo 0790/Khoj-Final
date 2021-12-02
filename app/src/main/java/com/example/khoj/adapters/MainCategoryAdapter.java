@@ -69,6 +69,7 @@ public class MainCategoryAdapter extends RecyclerView.Adapter<MainCategoryAdapte
 		public MainCategoryHolder(@NonNull @NotNull View itemView) {
 			super(itemView);
 			single_image = itemView.findViewById(R.id.single_image);
+
 			location_name = itemView.findViewById(R.id.location_name);
 		}
 	}
