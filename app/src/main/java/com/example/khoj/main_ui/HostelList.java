@@ -16,12 +16,12 @@ import java.util.Objects;
 
 import com.example.khoj.Objects.Hostel;
 import com.example.khoj.adapters.HostelListAdapter;
-import com.example.khoj.databinding.ActivityHotelListBinding;
+import com.example.khoj.databinding.ActivityHostelListBinding;
 import com.example.khoj.functions.FDB;
 
 public class HostelList extends AppCompatActivity {
 
-	ActivityHotelListBinding binding;
+	ActivityHostelListBinding binding;
 	ArrayList<Hostel> hostelArrayList;
 	HostelListAdapter adapter;
 
@@ -29,19 +29,19 @@ public class HostelList extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		binding = ActivityHotelListBinding.inflate(getLayoutInflater());
+		binding = ActivityHostelListBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
 
 		String id;
 
 		if (getIntent() != null && ((id = getIntent().getStringExtra("h_id")) != null)) {
-			loadHotels(FDB.getFDB().collection("main")
+			loadHostels(FDB.getFDB().collection("main")
 					.document("category")
 					.collection(id), id);
 
 			Objects.requireNonNull(getSupportActionBar()).setTitle(String.valueOf(id.charAt(0)).toUpperCase() + id.substring(1));
 			hostelArrayList = new ArrayList<>();
-			binding.mainHotelsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+			binding.mainHostelsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 		} else {
 			finish();
 			Toast.makeText(this, "No destination specified", Toast.LENGTH_SHORT).show();
@@ -49,7 +49,7 @@ public class HostelList extends AppCompatActivity {
 	}
 
 
-	private void loadHotels(CollectionReference collection, String parent) {
+	private void loadHostels(CollectionReference collection, String parent) {
 		collection
 				.get()
 				.addOnSuccessListener(queryDocumentSnapshots -> {
@@ -73,10 +73,10 @@ public class HostelList extends AppCompatActivity {
 						hostelArrayList.add(hostel);
 					}
 					if (hostelArrayList.size() > 1) {
-						Snackbar.make(binding.mainHotelsRecycler, "Slide Right To Explore More Hostels!", Snackbar.LENGTH_SHORT).show();
+						Snackbar.make(binding.mainHostelsRecycler, "Slide Right To Explore More Hostels!", Snackbar.LENGTH_SHORT).show();
 					}
 					adapter = new HostelListAdapter(hostelArrayList, HostelList.this);
-					binding.mainHotelsRecycler.setAdapter(adapter);
+					binding.mainHostelsRecycler.setAdapter(adapter);
 					adapter.notifyDataSetChanged();
 				}).addOnFailureListener(listener);
 	}

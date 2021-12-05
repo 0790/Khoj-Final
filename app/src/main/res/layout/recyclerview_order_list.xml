@@ -13,14 +13,14 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/order_hotel_room_images"
+            android:id="@+id/order_hostel_room_images"
             android:layout_width="match_parent"
             android:layout_height="225dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY" />
 
         <TextView
-            android:id="@+id/order_hotel_name"
+            android:id="@+id/order_hostel_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -32,7 +32,7 @@
             app:drawableStartCompat="@drawable/ic_address" />
 
         <TextView
-            android:id="@+id/order_hotel_room_adult"
+            android:id="@+id/order_hostel_room_adult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
@@ -46,7 +46,7 @@
 
 
         <TextView
-            android:id="@+id/order_hotel_check_in"
+            android:id="@+id/order_hostel_check_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
@@ -58,7 +58,7 @@
             app:drawableStartCompat="@drawable/ic_check_in" />
 
         <TextView
-            android:id="@+id/order_hotel_check_out"
+            android:id="@+id/order_hostel_check_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
@@ -70,7 +70,7 @@
             app:drawableStartCompat="@drawable/ic_log_out" />
 
         <TextView
-            android:id="@+id/order_hotel_room_price"
+            android:id="@+id/order_hostel_room_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
@@ -82,7 +82,7 @@
             app:drawableStartCompat="@drawable/ic_price" />
 
         <TextView
-            android:id="@+id/order_hotel_room_status"
+            android:id="@+id/order_hostel_room_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
@@ -94,7 +94,7 @@
             app:drawableStartCompat="@drawable/ic_status" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/order_cancel_hotel"
+            android:id="@+id/order_cancel_hostel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp"

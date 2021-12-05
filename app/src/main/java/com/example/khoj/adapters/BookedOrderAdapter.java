@@ -50,24 +50,24 @@ public class BookedOrderAdapter extends RecyclerView.Adapter<BookedOrderAdapter.
 		Order order = mOrders.get(position);
 		Calendar calendar = Calendar.getInstance();
 
-		bindingX.orderHotelName.setText(order.getHotel_name());
+		bindingX.orderHostelName.setText(order.getHostel_name());
 
 		calendar.setTimeInMillis(order.getCheck_in());
-		bindingX.orderHotelCheckIn.setText("Check-in : " + calendar.get(Calendar.DAY_OF_MONTH) + "th " + monthName(calendar.get(Calendar.MONTH))
+		bindingX.orderHostelCheckIn.setText("Check-in : " + calendar.get(Calendar.DAY_OF_MONTH) + "th " + monthName(calendar.get(Calendar.MONTH))
 				+ " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
 
 		calendar.setTimeInMillis(order.getCheck_out());
-		bindingX.orderHotelCheckOut.setText("Check-out : " + calendar.get(Calendar.DAY_OF_MONTH) + "th " + monthName(calendar.get(Calendar.MONTH))
+		bindingX.orderHostelCheckOut.setText("Check-out : " + calendar.get(Calendar.DAY_OF_MONTH) + "th " + monthName(calendar.get(Calendar.MONTH))
 				+ " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
 
-		bindingX.orderHotelRoomAdult.setText(order.getBeds_available() + " Beds");
+		bindingX.orderHostelRoomAdult.setText(order.getBeds_available() + " Beds");
 
 
-		bindingX.orderHotelRoomPrice.setText("INR " + order.getPrice_total() + " in total");
-		bindingX.orderHotelRoomStatus.setText(FDB.status(order.getStatus()));
+		bindingX.orderHostelRoomPrice.setText("INR " + order.getPrice_total() + " in total");
+		bindingX.orderHostelRoomStatus.setText(FDB.status(order.getStatus()));
 
 		if (order.getStatus() != FDB.STATUS_JUST_ORDERED) {
-			bindingX.orderCancelHotel.setEnabled(false);
+			bindingX.orderCancelHostel.setEnabled(false);
 		}
 
 
@@ -79,11 +79,11 @@ public class BookedOrderAdapter extends RecyclerView.Adapter<BookedOrderAdapter.
 				.child("1.jpg") // categorized - following naming system - must be existing according to the data structure
 				.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(mActivity)
 				.load(uri)
-				.into(bindingX.orderHotelRoomImages))
+				.into(bindingX.orderHostelRoomImages))
 				.addOnFailureListener(e -> Toast.makeText(mActivity, "Failed to load hostel image.", Toast.LENGTH_SHORT).show());
 
 
-		bindingX.orderCancelHotel.setOnClickListener(v -> {
+		bindingX.orderCancelHostel.setOnClickListener(v -> {
 			Map<String, Object> update = new HashMap<>();
 			update.put("STATUS", FDB.STATUS_REQ_CANCELLATION);
 
@@ -94,7 +94,7 @@ public class BookedOrderAdapter extends RecyclerView.Adapter<BookedOrderAdapter.
 					.document("" + order.getOrder_id())
 					.set(update, SetOptions.merge()).addOnSuccessListener(unused -> {
 				Toast.makeText(mActivity, "Booking cancellation is requested! Wait for sometime.", Toast.LENGTH_SHORT).show();
-				bindingX.orderHotelRoomStatus.setText("Cancellation Requested");
+				bindingX.orderHostelRoomStatus.setText("Cancellation Requested");
 				BookedOrderAdapter.this.notifyDataSetChanged();
 			}).addOnFailureListener(e -> Toast.makeText(mActivity, "Failed to request cancellation, retry.", Toast.LENGTH_SHORT).show());
 		});

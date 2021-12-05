@@ -4,7 +4,7 @@ public class Order {
 	long beds_available;
 	int status;
 	long check_in, check_out, order_id, price_total;
-	String hotel_name;
+	String hostel_name;
 	String images_id;
 	String order_loc;
 
@@ -82,12 +82,12 @@ public class Order {
 		return this;
 	}
 
-	public String getHotel_name() {
-		return hotel_name;
+	public String getHostel_name() {
+		return hostel_name;
 	}
 
-	public Order setHotel_name(String hotel_name) {
-		this.hotel_name = hotel_name;
+	public Order setHostel_name(String hostel_name) {
+		this.hostel_name = hostel_name;
 		return this;
 	}
 

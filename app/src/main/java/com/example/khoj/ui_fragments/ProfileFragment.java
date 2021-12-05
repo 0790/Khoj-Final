@@ -70,21 +70,24 @@ public class ProfileFragment extends Fragment {
 		binding.profileImg.setOnClickListener(v -> updateProfile());
 		loadImg();
 		mContext = container.getContext();
-		/*uiModeManager = (UiModeManager) mContext.getSystemService(Context.UI_MODE_SERVICE);
+		uiModeManager = (UiModeManager) mContext.getSystemService(Context.UI_MODE_SERVICE);
 		//final boolean isDarkModeOn =LocalDatabase.getInstance(getContext()).getDarkTheme();
 		btnToggleDark= binding.btnToggleDark;
 		if (LocalDatabase.getInstance(getContext()).getDarkTheme()) {
 			uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
+			AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 			btnToggleDark.setText("Disable Dark Mode");
 		}
 		else {
 			uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+			AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 			btnToggleDark.setText("Enable Dark Mode");
 		}
 		btnToggleDark.setOnClickListener(
 				(View view) -> {
 					// When user taps the enable/disable
 					// dark mode button
+					//Toast.makeText(requireActivity(),"Will be back with an update", Toast.LENGTH_SHORT).show() ;
 
 					if (LocalDatabase.getInstance(getContext()).getDarkTheme()) {
 						// if dark mode is on it
@@ -92,9 +95,12 @@ public class ProfileFragment extends Fragment {
 						// it will set isDarkModeOn
 						// boolean to false
 
+
+						uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+						AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 						LocalDatabase.getInstance(getContext()).setDarkTheme(false);
-						uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
 						// change text of Button
+						Toast.makeText(requireActivity(),"Dark Mode Disabled", Toast.LENGTH_SHORT).show() ;
 						btnToggleDark.setText("Enable Dark Mode");
 					}
 					else {
@@ -102,19 +108,20 @@ public class ProfileFragment extends Fragment {
 						// if dark mode is off
 						// it will turn it on
 						uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
-
+						AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+						Toast.makeText(requireActivity(),"Dark Mode Enabled", Toast.LENGTH_SHORT).show() ;
 						// it will set isDarkModeOn
 						// boolean to true
 						LocalDatabase.getInstance(getContext()).setDarkTheme(true);
 
 						// change text of Button
-						btnToggleDark.setText(
-								"Disable Dark Mode");
+						btnToggleDark.setText("Disable Dark Mode");
 					}
 				});
 
 
-	*/
+
+
 
 		binding.profileName.setText(LocalDatabase.getInstance(getContext()).getUsername());
 		binding.phoneDisplay.setText("Phone : +91" + LocalDatabase.getInstance(getContext()).getPhoneNumber());

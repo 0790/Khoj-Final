@@ -44,7 +44,7 @@ public class OrdersFragment extends Fragment {
 				.addOnSuccessListener(queryDocumentSnapshots -> {
 					for (DocumentSnapshot snapshot : queryDocumentSnapshots.getDocuments()) {
 						Order order = new Order();
-						order.setHotel_name(snapshot.getString("HOTEL_NAME"))
+						order.setHostel_name(snapshot.getString("HOTEL_NAME"))
 								.setCheck_in(snapshot.getLong("CHECK_IN"))
 								.setCheck_out(snapshot.getLong("CHECK_OUT"))
 								.setBeds_available(snapshot.getLong("BED_NEEDED"))
@@ -58,10 +58,10 @@ public class OrdersFragment extends Fragment {
 					binding.loadingStuff.setVisibility(View.GONE);
 					if (orders.size() == 0) {
 						binding.zeroOrders.setVisibility(View.VISIBLE);
-						binding.allBookedHotels.setVisibility(View.GONE);
+						binding.allBookedHostels.setVisibility(View.GONE);
 					} else {
 						adapter = new BookedOrderAdapter(getActivity(), orders);
-						binding.allBookedHotels.setAdapter(adapter);
+						binding.allBookedHostels.setAdapter(adapter);
 						adapter.notifyDataSetChanged();
 					}
 				}).addOnFailureListener(e -> Toast.makeText(getActivity(), "Error loading orders", Toast.LENGTH_SHORT).show());
