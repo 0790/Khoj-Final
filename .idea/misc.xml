@@ -31,6 +31,25 @@
         <entry key="..\:/Users/Deepti/Desktop/Khoj/Khoj--Android_app/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Deepti/Desktop/Khoj/Khoj--Android_app/app/src/main/res/menu/menu.xml" value="0.19814814814814816" />
         <entry key="..\:/Users/Deepti/Desktop/Khoj/Khoj--Android_app/app/src/main/res/menu/menu_toolbar.xml" value="0.1" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/drawable/ic_check_in.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/drawable/ic_name.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/drawable/ic_profile.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/activity_splash.xml" value="0.14375" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/btm_sheet.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/fragment_orders.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/otp_dialogue.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/otp_dialogue_2nd.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/recycler_main_category_image_items.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/recycler_main_category_layout_items.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/recycler_main_category_list_items.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/recyclerview_order_list.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/layout/toolbar_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/OMEN/AndroidStudioProjects/Khoj-Final/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.290625" />
       </map>
     </option>
   </component>

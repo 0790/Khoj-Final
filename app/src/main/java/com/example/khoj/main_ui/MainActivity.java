@@ -16,10 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.SetOptions;
 
@@ -42,24 +39,6 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-				.requestEmail()
-				.build();
-		// Build a GoogleSignInClient with the options specified by gso.
-
-		mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-		GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-		if (acct != null) {
-			String personName = acct.getDisplayName();
-			String personGivenName = acct.getGivenName();
-			String personFamilyName = acct.getFamilyName();
-			String personEmail = acct.getEmail();
-			String personId = acct.getId();
-			Uri personPhoto = acct.getPhotoUrl();
-		}
-
 		ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
 
@@ -74,13 +53,16 @@ public class MainActivity extends AppCompatActivity {
 		FirebaseAuth.getInstance().addAuthStateListener(firebaseAuth -> {
 			if (firebaseAuth.getCurrentUser() == null)
 				return;
-			if (LocalDatabase.getInstance(getBaseContext()).getUsername() == null) {
+			if (LocalDatabase.getInstance(getBaseContext()).getUsername() == null)
+			{
 				FDB.getFDB()
 						.collection("users")
 						.document(Objects.requireNonNull(firebaseAuth.getUid()))
 						.get().addOnSuccessListener(documentSnapshot -> LocalDatabase.getInstance(getBaseContext())
 						.setUsername(String.valueOf(documentSnapshot.get("USER_NAME"))));
-			} else if (!LocalDatabase.getInstance(getBaseContext()).isUploaded()) {
+			}
+			else if (!LocalDatabase.getInstance(getBaseContext()).isUploaded())
+			{
 				Map<String, String> map = new HashMap<>();
 				map.put("USER_NAME", LocalDatabase.getInstance(getBaseContext()).getUsername());
 				FDB.getFDB()
@@ -108,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 					.setMessage("This will erase all local userdata and take you to the login screen.")
 					.setPositiveButton("Yes", (dialog, which) -> {
 						LocalDatabase.getInstance(getBaseContext()).clear();
+						FirebaseAuth.getInstance().signOut();
 						startActivity(new Intent(MainActivity.this, SplashActivity.class));
 						MainActivity.this.finish();
 					})
